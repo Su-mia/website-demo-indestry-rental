@@ -82,9 +82,59 @@
 .role-switch {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 13px;
+}
+
+.user-badge {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+/* ── Role choice (login / signup) ──────────────── */
+.role-choice-group { display: grid; gap: 8px; }
+
+.role-choice-label {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-strong);
+}
+
+.role-choice {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
   color: var(--text-muted);
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.role-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-strong);
+}
+
+.role-btn.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text-strong);
+  font-weight: 700;
 }
 
 .chip {

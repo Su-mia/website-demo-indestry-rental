@@ -142,10 +142,24 @@ const viewOptions = [
   { id: 'catalogue', label: 'المعدات' },
   { id: 'login', label: 'تسجيل الدخول' },
   { id: 'signup', label: 'إنشاء حساب' },
-  { id: 'contractor', label: 'فضاء المقاول' },
-  { id: 'provider', label: 'فضاء المزود' },
+  { id: 'contractor', label: 'لوحتي' },
+  { id: 'provider', label: 'لوحتي' },
   { id: 'admin', label: 'الإدارة' },
 ]
+
+const NAV_BY_ROLE = {
+  guest:      ['home', 'catalogue', 'login', 'signup'],
+  contractor: ['home', 'catalogue', 'contractor'],
+  provider:   ['home', 'catalogue', 'provider'],
+  admin:      ['home', 'catalogue', 'contractor', 'provider', 'admin'],
+}
+
+const DEFAULT_VIEW = {
+  guest: 'home',
+  contractor: 'contractor',
+  provider: 'provider',
+  admin: 'admin',
+}
 
 function useStoredState(key, fallback) {
   const [value, setValue] = useState(() => {
@@ -203,6 +217,13 @@ function App() {
   const [providerTab, setProviderTab] = useState('overview')
   const [activeMessageRequest, setActiveMessageRequest] = useState('req-1')
   const [messageText, setMessageText] = useState('')
+  const [loginRole, setLoginRole] = useState('contractor')
+  const [signupType, setSignupType] = useState('contractor')
+
+  useEffect(() => {
+    const allowed = NAV_BY_ROLE[activeRole] || []
+    if (!allowed.includes(view)) setView(DEFAULT_VIEW[activeRole] || 'home')
+  }, [activeRole])
 
   const currentUser = useMemo(() => {
     if (activeRole === 'contractor') return users.find(u => u.role === 'contractor')
@@ -326,29 +347,35 @@ function App() {
           </div>
         </div>
         <nav className="nav">
-          {viewOptions.map(opt => (
-            <button
-              key={opt.id}
-              type="button"
-              className={view === opt.id ? 'nav-link active' : 'nav-link'}
-              onClick={() => setView(opt.id)}
-            >
-              {opt.label}
-            </button>
-          ))}
+          {viewOptions
+            .filter(opt => NAV_BY_ROLE[activeRole]?.includes(opt.id))
+            .map(opt => (
+              <button
+                key={opt.id}
+                type="button"
+                className={view === opt.id ? 'nav-link active' : 'nav-link'}
+                onClick={() => setView(opt.id)}
+              >
+                {opt.label}
+              </button>
+            ))}
         </nav>
         <div className="role-switch">
-          <span>وضع:</span>
-          {['guest', 'contractor', 'provider', 'admin'].map(role => (
-            <button
-              key={role}
-              type="button"
-              className={activeRole === role ? 'chip active' : 'chip'}
-              onClick={() => setActiveRole(role)}
-            >
-              {role === 'guest' ? 'زائر' : role === 'contractor' ? 'مقاول' : role === 'provider' ? 'مزود' : 'مدير'}
-            </button>
-          ))}
+          {activeRole === 'guest' ? (
+            <>
+              <button type="button" className="btn ghost" style={{ padding: '7px 14px' }} onClick={() => setView('login')}>تسجيل الدخول</button>
+              <button type="button" className="btn primary" style={{ padding: '7px 14px' }} onClick={() => setView('signup')}>إنشاء حساب</button>
+            </>
+          ) : (
+            <>
+              <span className="user-badge">
+                {activeRole === 'contractor' ? '👷 مقاول' : activeRole === 'provider' ? '🏢 مزود' : '🛡️ مدير'}
+              </span>
+              <button type="button" className="chip" onClick={() => { setActiveRole('guest'); setView('home') }}>
+                تسجيل الخروج
+              </button>
+            </>
+          )}
         </div>
       </header>
 
@@ -671,7 +698,7 @@ function App() {
         {view === 'login' && (
           <section className="section narrow">
             <h2>تسجيل الدخول</h2>
-            <form className="form" onSubmit={e => { e.preventDefault(); setActiveRole('contractor'); setView('contractor') }}>
+            <form className="form" onSubmit={e => { e.preventDefault(); setActiveRole(loginRole); setView(loginRole) }}>
               <label>
                 البريد الإلكتروني
                 <input type="email" placeholder="example@mail.com" />
@@ -680,6 +707,32 @@ function App() {
                 كلمة المرور
                 <input type="password" placeholder="••••••" />
               </label>
+              <div className="role-choice-group">
+                <p className="role-choice-label">نوع الحساب</p>
+                <div className="role-choice">
+                  <button
+                    type="button"
+                    className={loginRole === 'contractor' ? 'role-btn active' : 'role-btn'}
+                    onClick={() => setLoginRole('contractor')}
+                  >
+                    👷 مقاول
+                  </button>
+                  <button
+                    type="button"
+                    className={loginRole === 'provider' ? 'role-btn active' : 'role-btn'}
+                    onClick={() => setLoginRole('provider')}
+                  >
+                    🏢 صاحب معدات
+                  </button>
+                  <button
+                    type="button"
+                    className={loginRole === 'admin' ? 'role-btn active' : 'role-btn'}
+                    onClick={() => setLoginRole('admin')}
+                  >
+                    🛡️ مدير
+                  </button>
+                </div>
+              </div>
               <button type="submit" className="btn primary">دخول</button>
               <p className="form-note">
                 لا تملك حساباً؟{' '}
@@ -693,7 +746,7 @@ function App() {
         {view === 'signup' && (
           <section className="section narrow">
             <h2>إنشاء حساب</h2>
-            <form className="form" onSubmit={e => { e.preventDefault(); setView('login') }}>
+            <form className="form" onSubmit={e => { e.preventDefault(); setActiveRole(signupType); setView(signupType) }}>
               <label>
                 الاسم الكامل
                 <input type="text" placeholder="اسمك أو اسم الشركة" />
@@ -702,13 +755,25 @@ function App() {
                 البريد الإلكتروني
                 <input type="email" placeholder="example@mail.com" />
               </label>
-              <label>
-                نوع الحساب
-                <select>
-                  <option>مقاول</option>
-                  <option>صاحب معدات</option>
-                </select>
-              </label>
+              <div className="role-choice-group">
+                <p className="role-choice-label">نوع الحساب</p>
+                <div className="role-choice">
+                  <button
+                    type="button"
+                    className={signupType === 'contractor' ? 'role-btn active' : 'role-btn'}
+                    onClick={() => setSignupType('contractor')}
+                  >
+                    👷 مقاول
+                  </button>
+                  <button
+                    type="button"
+                    className={signupType === 'provider' ? 'role-btn active' : 'role-btn'}
+                    onClick={() => setSignupType('provider')}
+                  >
+                    🏢 صاحب معدات
+                  </button>
+                </div>
+              </div>
               <label>
                 كلمة المرور
                 <input type="password" placeholder="••••••" />
@@ -717,7 +782,7 @@ function App() {
                 تأكيد كلمة المرور
                 <input type="password" placeholder="••••••" />
               </label>
-              <button type="submit" className="btn primary">إنشاء الحساب</button>
+              <button type="submit" className="btn primary">إنشاء الحساب والدخول</button>
               <p className="form-note">
                 لديك حساب؟{' '}
                 <button type="button" className="link-btn" onClick={() => setView('login')}>تسجيل الدخول</button>
