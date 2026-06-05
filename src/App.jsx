@@ -15,76 +15,76 @@ const IMG = {
   e10: 'https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=700&h=320&fit=crop&auto=format',
 }
 
-const REGIONS = ['تونس', 'سوسة', 'صفاقس', 'نابل', 'بنزرت', 'المنستير', 'القيروان', 'بجة']
+const REGIONS = ['الجزائر', 'وهران', 'قسنطينة', 'عنابة', 'سطيف', 'تيزي وزو', 'البليدة', 'بومرداس']
 const TYPES = ['تونال معدني', 'تونال خشبي', 'قواعد صب', 'منصات عمل']
 
 const demoEquipment = [
   {
     id: 'eq-1', name: 'كوفراج تونال مرن', type: 'تونال معدني', price: 180,
-    region: 'تونس', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
+    region: 'الجزائر', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
     rating: 4.7, area: '150 م²', quantity: 5, available: true,
     description: 'نظام تونال معدني مناسب للمشاريع المتوسطة مع إمكانية توسعة سريعة وتكيّف مع أشكال متعددة.',
     image: IMG.e1, images: [IMG.e1, IMG.e4],
   },
   {
     id: 'eq-2', name: 'كوفراج أعمدة سريع', type: 'تونال معدني', price: 220,
-    region: 'سوسة', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
+    region: 'وهران', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
     rating: 4.5, area: '90 م²', quantity: 3, available: true,
     description: 'مخصص للأعمدة والحوائط مع نقاط تثبيت معززة وقوة تحمّل عالية.',
     image: IMG.e2, images: [IMG.e2, IMG.e7],
   },
   {
     id: 'eq-3', name: 'منصة صب متحركة', type: 'تونال خشبي', price: 120,
-    region: 'صفاقس', ownerId: 'u-p2', ownerName: 'كراء الخليج',
+    region: 'قسنطينة', ownerId: 'u-p2', ownerName: 'كراء الخليج',
     rating: 4.2, area: '60 م²', quantity: 2, available: false,
     description: 'منصة صب قابلة للنقل السريع لمواقع متعددة، خفيفة الوزن وسهلة التركيب.',
     image: IMG.e3, images: [IMG.e3],
   },
   {
     id: 'eq-4', name: 'كوفراج جدران معدني', type: 'تونال معدني', price: 200,
-    region: 'نابل', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
+    region: 'عنابة', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
     rating: 4.6, area: '120 م²', quantity: 4, available: true,
     description: 'كوفراج جدران قوي ومتين للمباني السكنية والتجارية، يتميز بالدقة في القياس.',
     image: IMG.e4, images: [IMG.e4, IMG.e1],
   },
   {
     id: 'eq-5', name: 'كوفراج سقف خشبي', type: 'تونال خشبي', price: 95,
-    region: 'بنزرت', ownerId: 'u-p4', ownerName: 'كراء المدار',
+    region: 'سطيف', ownerId: 'u-p4', ownerName: 'كراء المدار',
     rating: 3.9, area: '80 م²', quantity: 6, available: true,
     description: 'نظام سقف خشبي مناسب للأسقف الأفقية ومساحات الطوابق، سعر مناسب للمشاريع الصغيرة.',
     image: IMG.e5, images: [IMG.e5],
   },
   {
     id: 'eq-6', name: 'نظام تونال هيدروليكي', type: 'تونال معدني', price: 350,
-    region: 'تونس', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
+    region: 'الجزائر', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
     rating: 4.9, area: '200 م²', quantity: 2, available: true,
     description: 'نظام هيدروليكي متطور للمشاريع الكبيرة مع دقة عالية في التحكم وسرعة في التركيب.',
     image: IMG.e6, images: [IMG.e6, IMG.e9],
   },
   {
     id: 'eq-7', name: 'كوفراج قواعد مرن', type: 'قواعد صب', price: 140,
-    region: 'القيروان', ownerId: 'u-p4', ownerName: 'كراء المدار',
+    region: 'البليدة', ownerId: 'u-p4', ownerName: 'كراء المدار',
     rating: 4.3, area: '70 م²', quantity: 8, available: true,
     description: 'مناسب لصب قواعد الأعمدة والأساسات بأشكال متنوعة، مرونة عالية في الاستخدام.',
     image: IMG.e7, images: [IMG.e7],
   },
   {
     id: 'eq-8', name: 'منصة عمل متحركة', type: 'منصات عمل', price: 75,
-    region: 'المنستير', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
+    region: 'تيزي وزو', ownerId: 'u-provider', ownerName: 'شركة الريادة للبناء',
     rating: 4.1, area: '40 م²', quantity: 10, available: true,
     description: 'منصة عمل خفيفة ومتحركة لأعمال التشطيب والصيانة، مناسبة للطوابق والأسطح.',
     image: IMG.e8, images: [IMG.e8, IMG.e5],
   },
   {
     id: 'eq-9', name: 'كوفراج حوائط ثقيل', type: 'تونال معدني', price: 280,
-    region: 'سوسة', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
+    region: 'وهران', ownerId: 'u-p3', ownerName: 'مؤسسة المستقبل للبناء',
     rating: 4.8, area: '180 م²', quantity: 3, available: false,
     description: 'للمشاريع الكبيرة ذات الجدران السميكة، مع دعامات فولاذية مدمجة وقدرة تحمل عالية.',
     image: IMG.e9, images: [IMG.e9, IMG.e2],
   },
   {
     id: 'eq-10', name: 'نظام صب أفقي', type: 'قواعد صب', price: 160,
-    region: 'صفاقس', ownerId: 'u-p4', ownerName: 'كراء المدار',
+    region: 'بومرداس', ownerId: 'u-p4', ownerName: 'كراء المدار',
     rating: 4.4, area: '100 م²', quantity: 5, available: true,
     description: 'نظام متخصص في الصب الأفقي للأرضيات والأسقف المسطحة، سهل التنظيف والصيانة.',
     image: IMG.e10, images: [IMG.e10, IMG.e3],
@@ -133,7 +133,7 @@ const demoMessages = [
   },
   {
     id: 'msg-4', requestId: 'req-2', from: 'u-contractor', to: 'u-p3',
-    text: 'هل يمكن إرسال المعدة للموقع الواقع في مدينة نابل؟', date: '2026-05-29',
+    text: 'هل يمكن إرسال المعدة للموقع الواقع في مدينة وهران؟', date: '2026-05-29',
   },
 ]
 
@@ -204,15 +204,15 @@ function AvailBadge({ available }) {
 function App() {
   const [view, setView] = useState('home')
   const [activeRole, setActiveRole] = useState('guest')
-  const [equipment, setEquipment] = useStoredState('demo_equipment_v3', demoEquipment)
-  const [users, setUsers] = useStoredState('demo_users_v3', demoUsers)
-  const [requests, setRequests] = useStoredState('demo_requests_v3', demoRequests)
-  const [messages, setMessages] = useStoredState('demo_messages_v3', demoMessages)
-  const [ratings, setRatings] = useStoredState('demo_ratings_v3', [])
+  const [equipment, setEquipment] = useStoredState('demo_equipment_v4', demoEquipment)
+  const [users, setUsers] = useStoredState('demo_users_v4', demoUsers)
+  const [requests, setRequests] = useStoredState('demo_requests_v4', demoRequests)
+  const [messages, setMessages] = useStoredState('demo_messages_v4', demoMessages)
+  const [ratings, setRatings] = useStoredState('demo_ratings_v4', [])
   const [selectedEquipmentId, setSelectedEquipmentId] = useState('eq-1')
   const [filters, setFilters] = useState({ region: 'الكل', type: 'الكل', availability: 'الكل', minPrice: '', maxPrice: '' })
   const [requestDraft, setRequestDraft] = useState({ duration: 7, quantity: 1 })
-  const [equipmentForm, setEquipmentForm] = useState({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'تونس', quantity: 5, description: '' })
+  const [equipmentForm, setEquipmentForm] = useState({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'الجزائر', quantity: 5, description: '' })
   const [contractorTab, setContractorTab] = useState('overview')
   const [providerTab, setProviderTab] = useState('overview')
   const [activeMessageRequest, setActiveMessageRequest] = useState('req-1')
@@ -296,7 +296,7 @@ function App() {
         ? prev.map(item => item.id === payload.id ? { ...item, ...payload } : item)
         : [payload, ...prev]
     })
-    setEquipmentForm({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'تونس', quantity: 5, description: '' })
+    setEquipmentForm({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'الجزائر', quantity: 5, description: '' })
   }
 
   const handleEditEquipment = (item) => {
@@ -343,7 +343,7 @@ function App() {
           <div className="brand-badge">كوفراج</div>
           <div>
             <p className="brand-title">منصة كوفراج تونال</p>
-            <p className="brand-subtitle">شبكة رقمية لمعدات البناء في تونس</p>
+            <p className="brand-subtitle">شبكة رقمية لمعدات البناء في الجزائر</p>
           </div>
         </div>
         <nav className="nav">
@@ -506,17 +506,17 @@ function App() {
                 <blockquote>
                   <Stars score={5} />
                   <p>"ساعدتنا المنصة في العثور على كوفراج مناسب بسرعة كبيرة، وفّرنا أسبوعاً كاملاً من التنقل والاتصالات."</p>
-                  <footer>— شركة المقاولات الشمالية، تونس</footer>
+                  <footer>— شركة المقاولات الشمالية، الجزائر</footer>
                 </blockquote>
                 <blockquote>
                   <Stars score={5} />
                   <p>"تمكنا من زيادة عدد عمليات الكراء لمعداتنا بشكل ملحوظ. المنصة سهلة الاستخدام واحترافية."</p>
-                  <footer>— كراء المدار، بنزرت</footer>
+                  <footer>— كراء المدار، سطيف</footer>
                 </blockquote>
                 <blockquote>
                   <Stars score={4} />
-                  <p>"منصة احترافية وسهلة الاستخدام، أنصح بها كل المقاولين وشركات البناء في تونس."</p>
-                  <footer>— مكتب هندسي، صفاقس</footer>
+                  <p>"منصة احترافية وسهلة الاستخدام، أنصح بها كل المقاولين وشركات البناء في الجزائر."</p>
+                  <footer>— مكتب هندسي، قسنطينة</footer>
                 </blockquote>
               </div>
             </section>
@@ -553,9 +553,9 @@ function App() {
               <select value={filters.availability} onChange={e => setFilters({ ...filters, availability: e.target.value })}>
                 {['الكل', 'متاح', 'غير متاح'].map(opt => <option key={opt}>{opt}</option>)}
               </select>
-              <input type="number" placeholder="أقل سعر (د.ت)" value={filters.minPrice}
+              <input type="number" placeholder="أقل سعر (د.ج)" value={filters.minPrice}
                 onChange={e => setFilters({ ...filters, minPrice: e.target.value })} />
-              <input type="number" placeholder="أعلى سعر (د.ت)" value={filters.maxPrice}
+              <input type="number" placeholder="أعلى سعر (د.ج)" value={filters.maxPrice}
                 onChange={e => setFilters({ ...filters, maxPrice: e.target.value })} />
               <button type="button" className="btn ghost" onClick={() => setFilters({ region: 'الكل', type: 'الكل', availability: 'الكل', minPrice: '', maxPrice: '' })}>
                 إعادة ضبط
@@ -577,7 +577,7 @@ function App() {
                     <div className="card-body">
                       <h3>{item.name}</h3>
                       <p className="card-type">{item.type}</p>
-                      <p className="card-price">{item.price} <span>د.ت / يوم</span></p>
+                      <p className="card-price">{item.price} <span>د.ج / يوم</span></p>
                       <div className="card-meta-row">
                         <span>📍 {item.region}</span>
                         <span>📦 {item.quantity} وحدات</span>
@@ -631,7 +631,7 @@ function App() {
                   </div>
                   <div className="detail-item">
                     <span className="detail-label">السعر</span>
-                    <span className="detail-val">{selectedEquipment.price} د.ت / يوم</span>
+                    <span className="detail-val">{selectedEquipment.price} د.ج / يوم</span>
                   </div>
                   <div className="detail-item">
                     <span className="detail-label">النوع</span>
@@ -673,7 +673,7 @@ function App() {
                   <div className="total">
                     الإجمالي التقريبي:{' '}
                     <strong>
-                      {Number(requestDraft.duration || 0) * Number(requestDraft.quantity || 0) * selectedEquipment.price} د.ت
+                      {Number(requestDraft.duration || 0) * Number(requestDraft.quantity || 0) * selectedEquipment.price} د.ج
                     </strong>
                   </div>
                   <button
@@ -846,7 +846,7 @@ function App() {
                         <span className="cell-name">{getEquipName(r.equipmentId)}</span>
                         <StatusBadge status={r.status} />
                         <span>{r.duration} أيام × {r.quantity}</span>
-                        <span className="cell-price">{r.total} د.ت</span>
+                        <span className="cell-price">{r.total} د.ج</span>
                         <span className="text-muted">{r.createdAt}</span>
                       </div>
                     ))}
@@ -957,7 +957,7 @@ function App() {
                 <div className="stat-card"><strong>{equipment.filter(e => e.ownerId === 'u-provider').length}</strong><span>عدد المعدات</span></div>
                 <div className="stat-card"><strong>{providerRequests.length}</strong><span>عدد الطلبات</span></div>
                 <div className="stat-card success"><strong>{providerRequests.filter(r => r.status === 'مقبول').length}</strong><span>الحجوزات الحالية</span></div>
-                <div className="stat-card"><strong>{providerRevenue} د.ت</strong><span>الإيرادات</span></div>
+                <div className="stat-card"><strong>{providerRevenue} د.ج</strong><span>الإيرادات</span></div>
               </div>
             )}
 
@@ -980,7 +980,7 @@ function App() {
                     </label>
                     <div className="form-row">
                       <label>
-                        السعر / يوم (د.ت)
+                        السعر / يوم (د.ج)
                         <input type="number" min="1" value={equipmentForm.price}
                           onChange={e => setEquipmentForm({ ...equipmentForm, price: e.target.value })} />
                       </label>
@@ -1008,7 +1008,7 @@ function App() {
                       </button>
                       {equipmentForm.id && (
                         <button type="button" className="btn ghost"
-                          onClick={() => setEquipmentForm({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'تونس', quantity: 5, description: '' })}>
+                          onClick={() => setEquipmentForm({ id: '', name: '', type: 'تونال معدني', price: 150, region: 'الجزائر', quantity: 5, description: '' })}>
                           إلغاء
                         </button>
                       )}
@@ -1024,7 +1024,7 @@ function App() {
                         <img src={item.image} alt={item.name} className="table-img" />
                         <div className="equip-row-info">
                           <p className="equip-row-name">{item.name}</p>
-                          <p className="text-muted">{item.price} د.ت · {item.region}</p>
+                          <p className="text-muted">{item.price} د.ج · {item.region}</p>
                           <AvailBadge available={item.available} />
                         </div>
                         <div className="actions">
@@ -1058,7 +1058,7 @@ function App() {
                           <small className="text-muted">{getUserName(r.contractorId)}</small>
                         </div>
                         <span>{r.duration} أيام × {r.quantity}</span>
-                        <span className="cell-price">{r.total} د.ت</span>
+                        <span className="cell-price">{r.total} د.ج</span>
                         <StatusBadge status={r.status} />
                         <div className="actions">
                           {r.status === 'قيد الدراسة' && (
@@ -1084,7 +1084,7 @@ function App() {
                       <span className="cell-name">{getEquipName(r.equipmentId)}</span>
                       <span>{getUserName(r.contractorId)}</span>
                       <span>{r.duration} أيام</span>
-                      <span className="cell-price">{r.total} د.ت</span>
+                      <span className="cell-price">{r.total} د.ج</span>
                       <StatusBadge status={r.status} />
                     </div>
                   ))}
@@ -1151,7 +1151,7 @@ function App() {
                 { num: users.filter(u => u.role === 'provider').length, label: 'أصحاب المعدات' },
                 { num: equipment.length, label: 'عدد المعدات' },
                 { num: requests.length, label: 'عمليات الكراء' },
-                { num: `${requests.reduce((s, r) => s + r.total, 0)} د.ت`, label: 'إجمالي العمولات' },
+                { num: `${requests.reduce((s, r) => s + r.total, 0)} د.ج`, label: 'إجمالي العمولات' },
               ].map(s => (
                 <div key={s.label} className="stat-card">
                   <strong>{s.num}</strong>
@@ -1211,8 +1211,8 @@ function App() {
                     <span>{getEquipName(r.equipmentId)}</span>
                     <span>{getUserName(r.contractorId)}</span>
                     <StatusBadge status={r.status} />
-                    <span>{r.total} د.ت</span>
-                    <span className="text-muted">{Math.round(r.total * 0.05)} د.ت</span>
+                    <span>{r.total} د.ج</span>
+                    <span className="text-muted">{Math.round(r.total * 0.05)} د.ج</span>
                     <span className="text-muted">{r.createdAt}</span>
                   </div>
                 ))}
@@ -1263,10 +1263,10 @@ function App() {
                 <h3>الولايات الأكثر نشاطاً</h3>
                 <div className="stats small">
                   {[
-                    { region: 'تونس', count: 120 },
-                    { region: 'سوسة', count: 85 },
-                    { region: 'صفاقس', count: 70 },
-                    { region: 'نابل', count: 45 },
+                    { region: 'الجزائر', count: 120 },
+                    { region: 'وهران', count: 85 },
+                    { region: 'قسنطينة', count: 70 },
+                    { region: 'عنابة', count: 45 },
                   ].map(r => (
                     <div key={r.region} className="stat-card">
                       <strong>{r.count}</strong>
@@ -1283,7 +1283,7 @@ function App() {
       <footer className="footer">
         <div className="footer-brand">
           <div className="brand-badge" style={{ width: 40, height: 40, fontSize: 14 }}>كوفراج</div>
-          <p>منصة تونسية لرقمنة كراء الكوفراج ومعدات البناء.</p>
+          <p>منصة جزائرية لرقمنة كراء الكوفراج ومعدات البناء.</p>
         </div>
         <div>
           <h4>روابط سريعة</h4>
@@ -1295,7 +1295,7 @@ function App() {
         </div>
         <div>
           <h4>اتصل بنا</h4>
-          <p>البريد الإلكتروني: contact@kofraj.tn</p>
+          <p>البريد الإلكتروني: contact@kofraj.dz</p>
           <p>الهاتف: 70 000 000</p>
         </div>
         <div>
