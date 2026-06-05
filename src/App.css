@@ -41,6 +41,11 @@
   font-size: 15px;
   flex-shrink: 0;
 }
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
 
 .brand-title {
   font-size: 17px;
@@ -737,6 +742,16 @@
   font-size: 14px;
   color: var(--text-muted);
   margin: 0;
+}
+.form-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: #fff0f0;
+  border: 1px solid #f5c5c5;
+  border-radius: 8px;
+  color: #c0392b;
+  font-size: 14px;
+  text-align: center;
 }
 
 .link-btn {

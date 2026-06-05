@@ -218,6 +218,9 @@ function App() {
   const [activeMessageRequest, setActiveMessageRequest] = useState('req-1')
   const [messageText, setMessageText] = useState('')
   const [loginRole, setLoginRole] = useState('contractor')
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+  const [loginError, setLoginError] = useState('')
   const [signupType, setSignupType] = useState('contractor')
 
   useEffect(() => {
@@ -340,7 +343,7 @@ function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <div className="brand-badge">كوفراج</div>
+          <div className="brand-badge"><img src="/icon.svg" alt="logo" className="brand-logo" /></div>
           <div>
             <p className="brand-title">منصة كوفراج تونال</p>
             <p className="brand-subtitle">شبكة رقمية لمعدات البناء في الجزائر</p>
@@ -698,36 +701,49 @@ function App() {
         {view === 'login' && (
           <section className="section narrow">
             <h2>تسجيل الدخول</h2>
-            <form className="form" onSubmit={e => { e.preventDefault(); setActiveRole(loginRole); setView(loginRole) }}>
+            <form className="form" onSubmit={e => {
+              e.preventDefault()
+              setLoginError('')
+              if (loginRole === 'admin') {
+                if (loginEmail === 'admin.rent@gmail.com' && loginPassword === 'Admin@2026') {
+                  setActiveRole('admin'); setView('admin')
+                } else {
+                  setLoginError('البريد الإلكتروني أو كلمة المرور غير صحيحة')
+                }
+              } else {
+                setActiveRole(loginRole); setView(loginRole)
+              }
+            }}>
               <label>
                 البريد الإلكتروني
-                <input type="email" placeholder="example@mail.com" />
+                <input type="email" value={loginEmail} onChange={e => { setLoginEmail(e.target.value); setLoginError('') }} placeholder="example@mail.dz" />
               </label>
               <label>
                 كلمة المرور
-                <input type="password" placeholder="••••••" />
+                <input type="password" value={loginPassword} onChange={e => { setLoginPassword(e.target.value); setLoginError('') }} placeholder="••••••" />
               </label>
+              {loginError && <p className="form-error">{loginError}</p>}
               <div className="role-choice-group">
                 <p className="role-choice-label">نوع الحساب</p>
                 <div className="role-choice">
                   <button
                     type="button"
                     className={loginRole === 'contractor' ? 'role-btn active' : 'role-btn'}
-                    onClick={() => setLoginRole('contractor')}
+                    onClick={() => { setLoginRole('contractor'); setLoginError('') }}
                   >
                     👷 مقاول
                   </button>
                   <button
                     type="button"
                     className={loginRole === 'provider' ? 'role-btn active' : 'role-btn'}
-                    onClick={() => setLoginRole('provider')}
+                    onClick={() => { setLoginRole('provider'); setLoginError('') }}
                   >
                     🏢 صاحب معدات
                   </button>
                   <button
                     type="button"
                     className={loginRole === 'admin' ? 'role-btn active' : 'role-btn'}
-                    onClick={() => setLoginRole('admin')}
+                    onClick={() => { setLoginRole('admin'); setLoginError('') }}
                   >
                     🛡️ مدير
                   </button>
@@ -1282,7 +1298,7 @@ function App() {
 
       <footer className="footer">
         <div className="footer-brand">
-          <div className="brand-badge" style={{ width: 40, height: 40, fontSize: 14 }}>كوفراج</div>
+          <div className="brand-badge" style={{ width: 40, height: 40 }}><img src="/icon.svg" alt="logo" className="brand-logo" style={{ width: 26, height: 26 }} /></div>
           <p>منصة جزائرية لرقمنة كراء الكوفراج ومعدات البناء.</p>
         </div>
         <div>
